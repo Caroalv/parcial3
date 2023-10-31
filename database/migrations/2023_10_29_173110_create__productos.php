@@ -18,15 +18,14 @@ return new class extends Migration
 
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_producto');
-            $table->unsignedBigInteger('Stok');
-            $table->unsignedBigInteger('precio');
-            $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categoria');
-            $table->string('imagen'); // Agregamos un campo para la ruta de la imagen
+            $table->string('nombre'); // Asegúrate de tener esta línea
+            $table->integer('Stock');
+            $table->decimal('precio', 8, 2);
+            $table->string('categoria');
+            $table->string('imagen');
             $table->timestamps();
+        });
             
-    });
         
     }
 
