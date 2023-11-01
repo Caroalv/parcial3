@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -50,5 +50,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $productos->links() }} <!-- Esto mostrará los enlaces de paginación -->
 </div>
-@endsection
+@endsection 
+
