@@ -10,7 +10,10 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $productos = Producto::all();
+        //$productos = Producto::all();
+        //return view('productos.index', compact('productos'));
+        //PAGINADOR
+        $productos = Producto::paginate(5); // Pagina cada 5 registros
         return view('productos.index', compact('productos'));
     }
     
