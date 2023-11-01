@@ -3,21 +3,28 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+        <div class="col-md-12">
+            <div class="welcome-message">
+                <h1 class="text-center">¡Bienvenido a Nuestro Proyecto!</h1>
+                <p class="text-center">¡Gracias por unirte a nosotros!</p>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('styles')
+<style>
+    .welcome-message {
+        background-image: url('/images/background.jpg'); /* Ruta a tu imagen de fondo */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .welcome-message h1, .welcome-message p {
+        color: white;
+    }
+</style>
+@endpush
