@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -42,5 +43,14 @@
             @endforeach
         </tbody>
     </table>
+    {{ $categorias->links() }} <!-- Esto mostrará los enlaces de paginación -->
 </div>
 @endsection
+
+
+
+
+
+
+
+
