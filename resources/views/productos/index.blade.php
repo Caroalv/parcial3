@@ -23,7 +23,6 @@
                 <th>Stock</th>
                 <th>Precio</th>
                 <th>Categoria</th>
-                <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -35,7 +34,6 @@
                 <td>{{ $producto->stock }}</td>
                 <td>{{ $producto->precio }}</td>
                 <td>{{ $producto->categoria_id }}</td>
-                <td>{{ $producto->imagen }}</td>
 
                 <td>
                     <a href="{{ route('productos.show', ['producto' => $producto->id]) }}" class="btn btn-primary">Ver Detalles</a>
