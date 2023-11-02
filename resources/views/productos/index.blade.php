@@ -7,6 +7,11 @@
         <a href="{{ route('productos.create') }}" class="btn btn-success" style="margin-left: 10px;">
             <i class="fas fa-plus"></i> Agregar Producto
         </a>
+
+        {{-- Modificando para pdf --}}
+        <a href="{{ route('productos.pdf') }}" class="btn btn-primary btn-sm" data-placement="left">
+            {{__('PDF')}}
+        </a>
     </h1>
 
     @if(session('success'))

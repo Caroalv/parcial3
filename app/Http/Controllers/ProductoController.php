@@ -5,6 +5,8 @@ use App\Models\CategoriaProducto;
 // Asegúrate de importar el modelo de Categoría
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use PDF;
+
 
 class ProductoController extends Controller
 {
@@ -16,6 +18,18 @@ class ProductoController extends Controller
         $productos = Producto::paginate(5); // Pagina cada 5 registros
         return view('productos.index', compact('productos'));
     }
+
+    // usandopdf
+    public function pdf()
+    {
+        $productos = CategoriaProducto::paginate();
+
+        //return view('categorias.pdf',compact('categorias'));
+        $pdf = 'PDF'::loadView('productos.pdf',['productos'=>$productos]);
+        return $pdf->stream();
+        
+    }
+
     
     public function create()
     {

@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CategoriaProducto;
+use Dompdf\Adapter\PDFLib;
+use Barryvdh\DomPDF\PDF as DomPDF;
+
+//usando el metodo
+
+use PDF;
+
 
 class CategoriaController extends Controller
 {
@@ -14,6 +21,16 @@ class CategoriaController extends Controller
         //PAGINADOR
         $categorias = CategoriaProducto::paginate(5); // Pagina cada 5 registros
         return view('categorias.index', compact('categorias'));
+    }
+    // Metodo del pdf que recupera datos
+    public function pdf()
+    {
+        $categorias = CategoriaProducto::paginate();
+
+        //return view('categorias.pdf',compact('categorias'));
+        $pdf = 'PDF'::loadView('categorias.pdf',['categorias'=>$categorias]);
+        return $pdf->stream();
+        
     }
 
     public function create()
