@@ -16,6 +16,16 @@ class CategoriaController extends Controller
         return view('categorias.index', compact('categorias'));
     }
 
+    public function pdf()
+    {
+        $categorias = CategoriaProducto::paginate();
+
+        //return view('categorias.pdf',compact('categorias'));
+        $pdf = 'PDF'::loadView('categorias.pdf',['categorias'=>$categorias]);
+        return $pdf->stream();
+        
+    }
+
     public function create()
     {
         return view('categorias.create');

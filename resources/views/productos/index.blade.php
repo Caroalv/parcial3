@@ -9,6 +9,9 @@
         <a href="{{ route('graficos') }}" class="btn btn-primary" style="margin-left: 10px;">
             Ver Gráficos
         </a>
+        <a href="{{ route('productos.pdf') }}" class="btn btn-primary" style="margin-left: 10px;">
+            PDF
+        </a>
     </h1>
 
     @if(session('success'))
@@ -25,7 +28,6 @@
                 <th>Stock</th>
                 <th>Precio</th>
                 <th>Categoria</th>
-                <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -37,7 +39,6 @@
                 <td>{{ $producto->stock }}</td>
                 <td>{{ $producto->precio }}</td>
                 <td>{{ $producto->categoria_id }}</td>
-                <td>{{ $producto->imagen }}</td>
 
                 <td>
                     <a href="{{ route('productos.show', ['producto' => $producto->id]) }}" class="btn btn-primary">Ver Detalles</a>

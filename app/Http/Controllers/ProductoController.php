@@ -16,6 +16,16 @@ class ProductoController extends Controller
         $productos = Producto::paginate(5); // Pagina cada 5 registros
         return view('productos.index', compact('productos'));
     }
+
+    public function pdf()
+    {
+        $productos = Producto::paginate();
+
+        //return view('categorias.pdf',compact('categorias'));
+        $pdf = 'PDF'::loadView('productos.pdf',['productos'=>$productos]);
+        return $pdf->stream();
+        
+    }
     
     public function create()
     {

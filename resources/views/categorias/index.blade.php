@@ -8,6 +8,10 @@
         <a href="{{ route('categorias.create') }}" class="btn btn-success" style="margin-left: 10px;">
             <i class="fas fa-plus"></i> Agregar Categoría
         </a>
+    </a>
+    <a href="{{ route('categorias.pdf') }}" class="btn btn-primary" style="margin-left: 10px;">
+        PDF
+    </a>
     </h1>
 
     @if(session('success'))
