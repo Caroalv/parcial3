@@ -5,6 +5,8 @@ use App\Models\CategoriaProducto;
 // Asegúrate de importar el modelo de Categoría
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use PDF;
+
 
 class ProductoController extends Controller
 {
