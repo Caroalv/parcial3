@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GraficosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +33,9 @@ Route::get('/productos/{producto}/edit', [ProductoController::class, 'edit'])->n
 Route::put('/productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
 Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
 Route::get('/productos/{producto}/show', [ProductoController::class, 'show'])->name('productos.show');
+
+Route::get('/graficos', [GraficosController::class, 'mostrarGrafico'])->name('graficos');
+
+
+
+

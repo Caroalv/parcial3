@@ -1,11 +1,13 @@
  @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <h1>
         Categorías de Producto
         <a href="{{ route('productos.create') }}" class="btn btn-success" style="margin-left: 10px;">
             <i class="fas fa-plus"></i> Agregar Producto
+        </a>
+        <a href="{{ route('graficos') }}" class="btn btn-primary" style="margin-left: 10px;">
+            Ver Gráficos
         </a>
     </h1>
 
