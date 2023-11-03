@@ -45,6 +45,8 @@ Route::get('/productos/{producto}/show', [ProductoController::class, 'show'])->n
 Route::get('/graficos', [GraficosController::class, 'mostrarGrafico'])->name('graficos');
 
 Route::get('/catalogo', [CatalogoController::class, 'mostrarCatalogo'])->name('catalogo');
+Route::get('/checkout', [CatalogoController::class, 'mostrarCheckout'])->name('checkout');
+
 
 
 
