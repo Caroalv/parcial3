@@ -14,7 +14,11 @@ class CatalogoController extends Controller
        $productos = Producto::paginate(5); // Pagina cada 5 registros
        return view('catalogo', compact('productos'));
     }
-
+    public function mostrarCheckout()
+    {
+       return view('checkout');
+    }
+    
 
 }
 
