@@ -6,7 +6,10 @@
         <div class="col-md-12">
             <div class="welcome-message">
                 <h1 class="text-center">¡Bienvenido a Nuestro Proyecto!</h1>
-                <p class="text-center">¡Gracias por unirte a nosotros!</p>
+                <p class="text-center"><a href="{{ route('catalogo') }}" class="btn btn-primary" style="margin-left: 10px;">
+            Ir a catalogo de ventas
+        </a></p>
+                
             </div>
         </div>
     </div>
