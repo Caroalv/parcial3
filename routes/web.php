@@ -47,6 +47,8 @@ Route::get('/graficos', [GraficosController::class, 'mostrarGrafico'])->name('gr
 Route::get('/catalogo', [CatalogoController::class, 'mostrarCatalogo'])->name('catalogo');
 Route::get('/checkout', [CatalogoController::class, 'mostrarCheckout'])->name('checkout');
 
+Route::post('/finalizar-compra', [CatalogoController::class, 'finalizarCompra'])->name('finalizar.compra');
 
+Route::get('/confirmar', [CatalogoController::class, 'confirmar'])->name('confirmar');
 
 
