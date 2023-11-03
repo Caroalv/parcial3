@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>MI SITIO</title>
+    <title>MI TIENDA</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -16,13 +16,20 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @guest
+        <script>
+            // Verifica si el usuario está autenticado o es un invitado (guest)
+            // Si es un invitado, elimina el localStorage llamado "carrito"
+            localStorage.removeItem('carrito');
+        </script>
+    @endguest
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    MI SITIO
+                   MI TIENDA
                 </a>              
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

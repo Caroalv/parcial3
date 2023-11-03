@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
@@ -43,6 +44,7 @@ Route::get('/productos/{producto}/show', [ProductoController::class, 'show'])->n
 
 Route::get('/graficos', [GraficosController::class, 'mostrarGrafico'])->name('graficos');
 
+Route::get('/catalogo', [CatalogoController::class, 'mostrarCatalogo'])->name('catalogo');
 
 
 
