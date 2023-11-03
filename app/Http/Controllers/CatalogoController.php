@@ -26,6 +26,7 @@ class CatalogoController extends Controller
       $carrito = json_decode($carritoJSON, true);
       foreach ($carrito as $producto) {
           echo "Nombre: " . $producto['nombre'] . "<br>";
+          echo "Id: " . $producto['id'] . "<br>";
           echo "Precio: " . $producto['precio'] . "<br>";
           echo "Cantidad: " . $producto['cantidad'] . "<br>";
           echo "---------------------------<br>";
@@ -42,16 +43,23 @@ class CatalogoController extends Controller
           foreach ($carrito as $producto) {
               $detalleVenta = new DetalleVenta();
               $detalleVenta->venta_id = $venta->id;
+              $detalleVenta->producto_id = $producto['id']; 
               $detalleVenta->producto = $producto['nombre'];
               $detalleVenta->cantidad = $producto['cantidad'];
               $detalleVenta->precio = $producto['precio'];
               $detalleVenta->save();
+            
+               // Actualizar el stock en la tabla `productos`
+             $productoModel = Producto::find($producto['id']);
+                if ($productoModel) {
+                    $nuevoStock = $productoModel->stock - $producto['cantidad'];
+                    $productoModel->stock = $nuevoStock;
+                    $productoModel->save();
+               }
           }
       }
   
-      // Limpia el carrito almacenado en la sesión
-      // Puedes manejar esto de acuerdo a tus necesidades
-      // Dependiendo de cómo quieras gestionar el carrito después de la compra
+   
   
       return redirect()->route('confirmar');
   }      
@@ -60,6 +68,7 @@ class CatalogoController extends Controller
   {
      return view('confirmado');
   }
+  
   
 
 }
