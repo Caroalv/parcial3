@@ -41,6 +41,8 @@ Route::get('/productos/{producto}/edit', [ProductoController::class, 'edit'])->n
 Route::put('/productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
 Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
 Route::get('/productos/{producto}/show', [ProductoController::class, 'show'])->name('productos.show');
+Route::get('producto/{id}', 'ProductoController@detalle')->name('detalle-producto');
+
 
 Route::get('/graficos', [GraficosController::class, 'mostrarGrafico'])->name('graficos');
 

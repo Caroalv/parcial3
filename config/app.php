@@ -159,7 +159,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class, // Agrega esta línea
+    
         /*
          * Application Service Providers...
          */
@@ -170,6 +171,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
     ])->toArray(),
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -185,6 +187,6 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class, // Agrega esta línea
     ])->toArray(),
-
-];
+    ];
