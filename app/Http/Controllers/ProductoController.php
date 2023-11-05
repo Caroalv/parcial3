@@ -19,6 +19,8 @@ class ProductoController extends Controller
         return view('productos.index', compact('productos'));
     }
 
+
+
     public function pdf()
     {
         $productos = Producto::paginate();

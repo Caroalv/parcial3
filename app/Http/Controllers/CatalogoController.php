@@ -5,15 +5,18 @@ use App\Models\CategoriaProducto;
 use App\Models\Producto;
 use App\Models\Venta; 
 use App\Models\DetalleVenta; 
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
 
 class CatalogoController extends Controller
 {
+    
+    
     public function mostrarCatalogo()
     {
-       $productos = Producto::paginate(5); // Pagina cada 5 registros
+       $productos = Producto::all(); // Pagina cada 5 registros
        return view('catalogo', compact('productos'));
     }
     public function mostrarCheckout()
@@ -22,6 +25,10 @@ class CatalogoController extends Controller
     }
     
     public function finalizarCompra(Request $request) {
+      $user = Auth::user();
+      $userId = $user->id;
+
+
       $carritoJSON = $request->carrito;
       $carrito = json_decode($carritoJSON, true);
       foreach ($carrito as $producto) {
@@ -29,13 +36,14 @@ class CatalogoController extends Controller
           echo "Id: " . $producto['id'] . "<br>";
           echo "Precio: " . $producto['precio'] . "<br>";
           echo "Cantidad: " . $producto['cantidad'] . "<br>";
+          echo "Usuario: " . $userId . "<br>";
           echo "---------------------------<br>";
       }
       
       // Crear una nueva venta (encabezado)
       $venta = new Venta();
-      $venta->fecha = now(); // Puedes establecer la fecha actual o la que corresponda
-      $venta->cliente = 'Cliente de ejemplo'; // Debes proporcionar la información del cliente
+      $venta->fecha = now();
+      $venta->id_cliente = $userId;
       $venta->save();
   
       // Guardar el detalle de la venta

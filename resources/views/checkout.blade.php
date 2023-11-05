@@ -48,6 +48,7 @@
 
                 carritoHTML += '<li class="list-group-item d-flex justify-content-center">';
                 carritoHTML += '<form method="POST" action="' + "{{ route('finalizar.compra') }}" + '">';
+                carritoHTML += '<input type="hidden" name="usuario" value="' + "{{ auth()->user()->id }}" + '">';
                 carritoHTML += '<input type="hidden" name="_token" value="' + "{{ csrf_token() }}" + '">';
                 carritoHTML += '<input type="text" hidden id="carrito-input" name="carrito">';
                 carritoHTML += '<button type="submit" id="finalizar-compra-button" class="btn btn-primary">Finalizar Compra</button>';
@@ -70,7 +71,7 @@ var carritoInput = document.getElementById('carrito-input');
 // Asigna el contenido del carrito al input como un valor JSON
 carritoInput.value = JSON.stringify(carrito);
 
-localStorage.clear();
+
     </script>
     </style>
 @endsection
