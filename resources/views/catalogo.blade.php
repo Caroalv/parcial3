@@ -31,11 +31,17 @@
                                     " hidden>          
                                      <label
                                     for="cantidad">Cantidad:</label>
-                                <input type="number" id="cantidad{{ $producto->id }}" value="1" min="1"> <button
+                                <input type="number" id="cantidad{{ $producto->id }}" value="1" min="1"> <br>
+                                <br>
+                                <div class="text-center">
+                                 <a href="{{ route('productos.show', ['producto' => $producto->id]) }}" class="btn btn-primary">Ver Detalles</a>
+                                 <button class="btn btn-success" onclick="editarCantidad({{ $producto->id }})">Editar</button>
+                                </div>
+                                </div>
+                                <button
                                     class="btn btn-primary" onclick="agregarAlCarrito({{ $producto->id }})"> Agregar al
                                     carrito</button>
-                                <button class="btn btn-success" onclick="editarCantidad({{ $producto->id }})">
-                                    Editar</button> </div>
+
                         </div>
                     </div>
                     @endforeach
