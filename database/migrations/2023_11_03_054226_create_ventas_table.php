@@ -11,7 +11,8 @@ class CreateVentasTable extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
-            $table->string('cliente');
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')->references('id')->on('users');
             // Agrega más columnas según tus necesidades
             $table->timestamps();
         });
