@@ -20,13 +20,15 @@ class CreateCategoriaProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->integer('stock')->default(0); // Establecer un valor predeterminado
+            $table->integer('stock')->default(0);
             $table->decimal('precio', 8, 2);
-            $table->unsignedBigInteger('categoria_id'); // mismo tipo que la clave primaria en la tabla padre
+            $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categoria');
             $table->string('imagen', 255);
+            $table->text('qr_code')->nullable(); // Campo para almacenar el código QR en base64
             $table->timestamps();
         });
+        
     }
 
     /**
