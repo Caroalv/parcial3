@@ -13,12 +13,11 @@
             <p class="card-text">Stock: {{ $producto->stock }}</p>
             <p class="card-text">Precio: {{ $producto->precio }}</p>
             <p class="card-text">Categoría: {{ $producto->categoria->nombre }}</p>
-
+            <p id="codigo-qr" style="width: 100%; height: auto;">
+             {!! QrCode::size(100)->generate(route('detalle-producto', $producto->id)) !!}
+            </p>
             <!-- Agrega un espacio para mostrar el código QR -->
-            <div id="codigo-qr" style="width: 100%; height: auto;">
-                {!! QrCode::size(200)->generate(route('detalle-producto', $producto->id)) !!}
-            </div>
-            <!-- Otros detalles del producto -->
+        
         </div>
     </div>
     @else

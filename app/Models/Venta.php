@@ -10,11 +10,17 @@ class Venta extends Model
     protected $table = 'ventas'; // Nombre de la tabla en la base de datos
 
     protected $fillable = [
-        'fecha', 'cliente',
+        'fecha', 'id_cliente',
     ];
 
     public function detallesVenta()
     {
         return $this->hasMany(DetalleVenta::class);
     }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
