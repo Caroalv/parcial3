@@ -54,3 +54,4 @@ Route::post('/finalizar-compra', [CatalogoController::class, 'finalizarCompra'])
 Route::get('/confirmar', [CatalogoController::class, 'confirmar'])->name('confirmar');
 
 
+Route::get('/generar-pdf', [ProductoController::class, 'pdf'])->name('generar.pdf');
