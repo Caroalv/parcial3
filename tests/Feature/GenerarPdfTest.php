@@ -11,7 +11,7 @@ use Tests\TestCase;
 class GenerarPdfTest extends TestCase
 {
     // Usa el trait RefreshDatabase para migrar y volver a cargar la base de datos durante las pruebas
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
     // Define la función de prueba
     public function testGenerarPdf()

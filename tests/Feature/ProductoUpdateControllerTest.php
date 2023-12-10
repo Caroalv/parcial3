@@ -12,7 +12,7 @@ use App\Models\Producto;
 //Utilizamos un nombre descriptivo para la clase
 class ProductoUpdateControllerTest extends TestCase
 {
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
     /**
      * @test

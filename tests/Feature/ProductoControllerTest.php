@@ -14,7 +14,7 @@ use App\Models\Producto;
 //Le damos un nombre descriptivo a la clase
 class ProductoControllerTest extends TestCase
 {
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
     /**
      * @test

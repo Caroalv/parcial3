@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class EliminarCategoriaTest extends TestCase
 {
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
     public function testEliminarCategoria()
     {

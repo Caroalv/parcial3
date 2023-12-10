@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class EliminarProductoTest extends TestCase
 {
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
     public function testEliminarProducto()
     {
